@@ -44,13 +44,20 @@ button:hover {
   background-color: #FFE4B5; /* soft golden highlight on hover */
 }
 
-/* Optional: Add a chicken footprint pattern as background for sections */
-section {
+
+
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Chicken_footprint.svg/1200px-Chicken_footprint.svg.png');
   background-repeat: repeat;
   background-size: 50px;
   padding: 20px;
   margin: 20px 0;
   border-radius: 15px;
-  opacity: 0.2; /* subtle watermark effect */
+  opacity: 0.2;
 }
+
+header img{
+    border-radius: 50%;
+    border: 3px solid #D2691E;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0,3)
+    margin-bottom: 10px;
+  }
