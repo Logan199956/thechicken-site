@@ -1,0 +1,56 @@
+
+/* Chicken-themed colours */
+body {
+  background-color: #FDF6E3; /* warm eggshell background */
+  color: #4B3621;            /* rich brown text, like a hen's feathers */
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* playful, kid-friendly font */
+  margin: 0;
+  padding: 0;
+}
+
+/* Header with a warm, yolk-yellow bar */
+header {
+  background-color: #FBC02D; /* yolk yellow */
+  padding: 20px;
+  text-align: center;
+  color: white;
+  font-size: 2em;
+}
+
+/* Make links farm-chic! */
+a {
+  color: #D2691E;  /* chicken comb reddish-brown */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #A0522D;  /* darker brown on hover */
+}
+
+/* Fun egg-shaped buttons */
+button {
+  background-color: #FFF8DC; /* eggshell white */
+  border: 2px solid #D2B48C; /* light tan border */
+  border-radius: 50% / 40%;  /* oval, egg-like shape */
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background-color: #FFE4B5; /* soft golden highlight on hover */
+}
+
+/* Optional: Add a chicken footprint pattern as background for sections */
+section {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Chicken_footprint.svg/1200px-Chicken_footprint.svg.png');
+  background-repeat: repeat;
+  background-size: 50px;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 15px;
+  opacity: 0.2; /* subtle watermark effect */
+}
