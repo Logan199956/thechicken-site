@@ -3,7 +3,7 @@
 body {
   background-color: #FDF6E3; /* warm eggshell background */
   color: #4B3621;            /* rich brown text, like a hen's feathers */
-  font-family: 'Comic Sans MS', cursive, sans-serif; /* playful, kid-friendly font */
+  font-family: arial; /* playful, kid-friendly font */
   margin: 0;
   padding: 0;
 }
