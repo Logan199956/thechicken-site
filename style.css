@@ -27,6 +27,52 @@ a {
 a:hover {
   color: #A0522D;  /* darker brown on hover */
 }
+body {
+  margin: 0;
+  overflow: hidden;
+  background: skyblue;
+  font-family: sans-serif;
+}
+
+#game {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to top, #87ceeb 70%, #ffffff);
+}
+
+#bird {
+  position: absolute;
+  left: 50px;
+  top: 200px;
+  width: 40px;
+  height: 40px;
+  background: yellow;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #333;
+}
+
+.pipe {
+  position: absolute;
+  width: 60px;
+  background: green;
+}
+
+.pipe.top {
+  top: 0;
+}
+
+.pipe.bottom {
+  bottom: 0;
+}
+
+#score {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
 
 /* Fun egg-shaped buttons */
 button {
