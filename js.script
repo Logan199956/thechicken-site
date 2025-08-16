@@ -1,1 +1,38 @@
+const yard = document.getElementById('yard');
+const spawnBtn = document.getElementById('spawn');
+const spawn5Btn = document.getElementById('spawn5');
+const clearBtn = document.getElementById('clear');
 
+const birds = ['🐔','🐣','🐥','🐓'];
+
+function random(min, max){ return Math.random() * (max - min) + min; }
+
+function spawnChicken(){
+  const el = document.createElement('span');
+  el.className = 'chicken';
+  el.textContent = birds[Math.floor(Math.random() * birds.length)];
+
+  const pad = 6; // keep away from edges (percent)
+  const left = random(pad, 100 - pad);
+  const top  = random(pad, 100 - pad);
+  el.style.left = left + '%';
+  el.style.top  = top  + '%';
+
+  el.style.setProperty('--rot', Math.floor(random(-10, 10)) + 'deg');
+  el.style.setProperty('--dur', random(2.0, 3.2) + 's');
+
+  el.addEventListener('click', () => {
+    el.classList.add('poof');
+    setTimeout(() => el.remove(), 320);
+  });
+
+  yard.appendChild(el);
+  return el;
+}
+
+spawnBtn.addEventListener('click', () => spawnChicken());
+spawn5Btn.addEventListener('click', () => { for(let i=0;i<5;i++) spawnChicken(); });
+clearBtn.addEventListener('click', () => yard.innerHTML = '');
+
+// Optional greeting chicken
+spawnChicken();
