@@ -36,3 +36,19 @@ clearBtn.addEventListener('click', () => yard.innerHTML = '');
 
 // Optional greeting chicken
 spawnChicken();
+
+<script>
+function generateName() {
+    const names = [
+        "Hen Solo", "Cluck Norris", "Albert Eggstein", 
+        "Meryl Peep", "Amelia Egghart", "Kylo Hen", 
+        "Attila the Hen", "Eggatha Christie", "Goldie Hen"
+    ];
+
+    // Pick a random number based on the length of the list
+    const randomIndex = Math.floor(Math.random() * names.length);
+    
+    // Change the text on the screen to the random name
+    document.getElementById("display-name").innerText = names[randomIndex];
+}
+</script>
