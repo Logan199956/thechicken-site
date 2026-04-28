@@ -1,227 +1,112 @@
-
-/* Chicken-themed colours */
-body {
-  background-color: #FDF6E3; /* warm eggshell background */
-  color: #4B3621;            /* rich brown text, like a hen's feathers */
-  font-family: arial; /* playful, kid-friendly font */
-  margin: 0;
-  padding: 0;
+/* Root colours */
+:root{
+  --bg:#FDF6E3;
+  --text:#4B3621;
+  --accent:#FBC02D;
+  --accent2:#D2691E;
 }
 
-/* Header with a warm, yolk-yellow bar */
+* {
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Header */
 header {
-  background-color: #FBC02D; /* yolk yellow */
-  padding: 20px;
   text-align: center;
+  padding: 16px;
+  background: var(--accent);
   color: white;
   font-size: 2em;
 }
 
-/* Make links farm-chic! */
+/* Links */
 a {
-  color: #D2691E;  /* chicken comb reddish-brown */
+  color: var(--accent2);
   text-decoration: none;
   font-weight: bold;
 }
-
 a:hover {
-  color: #A0522D;  /* darker brown on hover */
-}
-body {
-  margin: 0;
-  background: skyblue;
-  font-family: sans-serif;
+  color: #A0522D;
 }
 
-#game {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(to top, #87ceeb 70%, #ffffff);
-}
-
-#bird {
-  position: absolute;
-  left: 50px;
-  top: 200px;
-  width: 40px;
-  height: 40px;
-  background: yellow;
-  border-radius: 50%;
-  box-shadow: 0 0 5px #333;
-}
-
-.pipe {
-  position: absolute;
-  width: 60px;
-  background: green;
-}
-
-.pipe.top {
-  top: 0;
-}
-
-.pipe.bottom {
-  bottom: 0;
-}
-
-#score {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-/* Fun egg-shaped buttons */
+/* Buttons */
 button {
-  background-color: #FFF8DC; /* eggshell white */
-  border: 2px solid #D2B48C; /* light tan border */
-  border-radius: 50% / 40%;  /* oval, egg-like shape */
-  padding: 10px 20px;
-  font-size: 1em;
+  border: 2px solid var(--accent2);
+  background: #FFF8DC;
+  padding: 10px 18px;
+  border-radius: 50% / 40%;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: 0.2s;
 }
-
 button:hover {
-  transform: scale(1.1);
-  background-color: #FFE4B5; /* soft golden highlight on hover */
+  transform: scale(1.05);
+  background: #FFE4B5;
 }
 
-
-
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Chicken_footprint.svg/1200px-Chicken_footprint.svg.png');
-  background-repeat: repeat;
-  background-size: 50px;
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 15px;
-  opacity: 0.2;
+/* Controls */
+.controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  padding: 14px;
+  flex-wrap: wrap;
 }
 
-
-:root{
-  --bg:#FDF6E3;       /* eggshell */
-  --text:#4B3621;     /* feather brown */
-  --accent:#FBC02D;   /* yolk */
-  --accent2:#D2691E;  /* comb brown */
-}
-
-*{ box-sizing: border-box; }
-
-body{
-  margin:0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  display:flex;
-  flex-direction:column;
-  min-height:100vh;
-}
-
-header{
-  text-align:center;
-  padding:16px 12px;
-  background: var(--accent);
-  color:white;
-  font-weight:700;
-}
-
-.controls{
-  display:flex;
-  gap:12px;
-  justify-content:center;
-  padding:14px;
-  flex-wrap:wrap;
-}
-
-button{
-  border:2px solid var(--accent2);
-  background:#FFF8DC;
-  padding:10px 18px;
-  border-radius:50% / 40%; /* egg shape */
-  font-size:16px;
-  cursor:pointer;
-  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,.15);
-}
-button:hover{ transform: scale(1.06); background:#FFE4B5; }
-button:active{ transform: scale(0.98); }
-
-.yard{
-  position:relative;
-  flex:1;
-  min-height:60vh;
-  margin:0 12px 18px;
-  border-radius:18px;
-  overflow:hidden;
-  outline:2px dashed rgba(0,0,0,.08);
+/* Yard */
+.yard {
+  position: relative;
+  min-height: 60vh;
+  margin: 20px;
+  border-radius: 18px;
+  overflow: hidden;
   background:
     radial-gradient(rgba(0,0,0,.03) 1px, transparent 1px) 0 0/24px 24px,
     linear-gradient(180deg, #f8f3e7, #f1ead7);
 }
 
-/* Chickens as elements */
-.chicken{
-  position:absolute;
-  user-select:none;
+/* Chickens */
+.chicken {
+  position: absolute;
   font-size: clamp(28px, 4.5vw, 54px);
-  line-height:1;
-  filter: drop-shadow(0 2px 3px rgba(0,0,0,.25));
-  animation: bob var(--dur, 2.6s) ease-in-out infinite;
-  transform: translate(-50%,-50%) rotate(var(--rot, 0deg));
-  will-change: transform;
+  transform: translate(-50%, -50%);
   cursor: pointer;
-}
-.chicken:hover{ transform: translate(-50%,-50%) scale(1.08) rotate(var(--rot, 0deg)); }
-
-@keyframes bob{
-  0%   { transform: translate(-50%,-52%) rotate(var(--rot, 0deg)); }
-  50%  { transform: translate(-50%,-47%) rotate(var(--rot, 0deg)); }
-  100% { transform: translate(-50%,-52%) rotate(var(--rot, 0deg)); }
+  animation: bob var(--dur, 2.6s) ease-in-out infinite;
 }
 
-.poof{
+@keyframes bob {
+  0%   { transform: translate(-50%,-52%); }
+  50%  { transform: translate(-50%,-47%); }
+  100% { transform: translate(-50%,-52%); }
+}
+
+.poof {
   animation: poof .35s ease forwards;
 }
-@keyframes poof{
-  to{ transform: translate(-50%,-60%) scale(1.3); opacity:0; }
+
+@keyframes poof {
+  to {
+    transform: translate(-50%,-60%) scale(1.3);
+    opacity: 0;
+  }
 }
 
-.hint{
-  text-align:center;
-  font-size:14px;
-  opacity:.7;
-  margin-bottom:10px;
+/* Hint text */
+.hint {
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.7;
 }
 
-.generator-container {
-    background-color: #f9f3e6; /* Eggshell white */
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    border: 2px dashed #ffc107; /* Beak yellow */
-    max-width: 300px;
-    margin: 20px auto;
-}
-
-.generator-container button {
-    background-color: #d32f2f; /* Comb red */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.generator-container button:hover {
-    background-color: #b71c1c; /* Darker red on hover */
-}
-
+/* Name generator */
 #display-name {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
