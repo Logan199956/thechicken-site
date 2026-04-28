@@ -1,54 +1,77 @@
-const yard = document.getElementById('yard');
-const spawnBtn = document.getElementById('spawn');
-const spawn5Btn = document.getElementById('spawn5');
-const clearBtn = document.getElementById('clear');
+// Wait until the page is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
 
-const birds = ['🐔','🐣','🐥','🐓'];
+  const yard = document.getElementById('yard');
+  const spawnBtn = document.getElementById('spawn');
+  const spawn5Btn = document.getElementById('spawn5');
+  const clearBtn = document.getElementById('clear');
 
-function random(min, max){ return Math.random() * (max - min) + min; }
+  const birds = ['🐔','🐣','🐥','🐓'];
 
-function spawnChicken(){
-  const el = document.createElement('span');
-  el.className = 'chicken';
-  el.textContent = birds[Math.floor(Math.random() * birds.length)];
+  function random(min, max) {
+    return Math.random() * (max - min) + min;
+  }
 
-  const pad = 6; // keep away from edges (percent)
-  const left = random(pad, 100 - pad);
-  const top  = random(pad, 100 - pad);
-  el.style.left = left + '%';
-  el.style.top  = top  + '%';
+  function spawnChicken() {
+    const el = document.createElement('span');
+    el.className = 'chicken';
+    el.textContent = birds[Math.floor(Math.random() * birds.length)];
 
-  el.style.setProperty('--rot', Math.floor(random(-10, 10)) + 'deg');
-  el.style.setProperty('--dur', random(2.0, 3.2) + 's');
+    const pad = 6;
+    const left = random(pad, 100 - pad);
+    const top  = random(pad, 100 - pad);
 
-  el.addEventListener('click', () => {
-    el.classList.add('poof');
-    setTimeout(() => el.remove(), 320);
-  });
+    el.style.left = left + '%';
+    el.style.top  = top  + '%';
 
-  yard.appendChild(el);
-  return el;
-}
+    el.style.setProperty('--rot', Math.floor(random(-10, 10)) + 'deg');
+    el.style.setProperty('--dur', random(2.0, 3.2) + 's');
 
-spawnBtn.addEventListener('click', () => spawnChicken());
-spawn5Btn.addEventListener('click', () => { for(let i=0;i<5;i++) spawnChicken(); });
-clearBtn.addEventListener('click', () => yard.innerHTML = '');
+    // Click to remove chicken
+    el.addEventListener('click', () => {
+      el.classList.add('poof');
+      setTimeout(() => el.remove(), 320);
+    });
 
-// Optional greeting chicken
-spawnChicken();
+    yard.appendChild(el);
+  }
 
-<script>
-function generateName() {
+  // Button events
+  if (spawnBtn) {
+    spawnBtn.addEventListener('click', spawnChicken);
+  }
+
+  if (spawn5Btn) {
+    spawn5Btn.addEventListener('click', () => {
+      for (let i = 0; i < 5; i++) {
+        spawnChicken();
+      }
+    });
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      yard.innerHTML = '';
+    });
+  }
+
+  // Chicken name generator
+  window.generateName = function () {
     const names = [
-        "Hen Solo", "Cluck Norris", "Albert Eggstein", 
-        "Meryl Peep", "Amelia Egghart", "Kylo Hen", 
-        "Attila the Hen", "Eggatha Christie", "Goldie Hen"
+      "Hen Solo", "Cluck Norris", "Albert Eggstein",
+      "Meryl Peep", "Amelia Egghart", "Kylo Hen",
+      "Attila the Hen", "Eggatha Christie", "Goldie Hen"
     ];
 
-    // Pick a random number based on the length of the list
     const randomIndex = Math.floor(Math.random() * names.length);
-    
-    // Change the text on the screen to the random name
-    document.getElementById("display-name").innerText = names[randomIndex];
-}
-</script>
+    const display = document.getElementById("display-name");
+
+    if (display) {
+      display.innerText = names[randomIndex];
+    }
+  };
+
+  // Spawn one chicken on page load
+  spawnChicken();
+
+});
