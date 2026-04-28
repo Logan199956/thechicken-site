@@ -1,54 +1,67 @@
+
 <!DOCTYPE html>
-<html>
-  <body>
-    <head>
-      <link rel="stylesheet" href="style.css">
-    <title>This is my first page. Hope you enjoy it!</title>
-    <header>
-      <img src="logo.png" alt="Chicken Logo" style=width: 100px; height: auto;">
-    </header>
-    <p>My brother has a strange addiction to chickens, but overtime you get used to it!</p>
-    <img src="chicken.jpg" alt=A cute chicken pecking grass">
-    <video width="640" height="360" controls>
-      <source src="https://www.pexels.com/download/video/856986/" type="video/mp4">
-    </video>
-    <p>Liked the chickens?</p>
-      <p>You want more right? Well then <strong>have</strong> more!</p>
-      <button onclick='alert("🐓🐓🐓🐓🐓🐓🐓🐓🐓🐓🐓🐓🐓")'>chicken spawner...</button>
-      <a href="https://en.wikipedia.org/wiki/Chicken">Chicken-Wikipedia</a>
-      <h1>Facts about chickens.</h1>
-      <p>Did you know that chickens were first domesticated 8000 years ago?<br>
-     They can also lay 300 eggs per year. Thats (almost) an egg per day!<br>
-      Whats cool is that the oldest chicken in the world lived to the age of 16!<br> Thats crazy isnt it, just think about it.</p>
-      
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Chicken Yard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css"/>
-  <header>Welcome to the Chicken Yard 🐔</header>
+<body>
 
-  <div class="controls">
-    <button id="spawn">Spawn a chicken</button>
-    <button id="spawn5">Spawn five</button>
-    <button id="clear">Clear yard</button>
-  </div>
+<header>
+  <img src="logo.png" alt="Chicken Logo" style="width:100px; height:auto;">
+  <h1>Welcome to the Chicken Yard 🐔</h1>
+</header>
 
-  <div class="hint">Tip: tap a chicken to make it “poof”</div>
+<p>My brother has a strange addiction to chickens, but over time you get used to it!</p>
 
-  <div id="yard" class="yard" aria-label="Chicken yard" role="region"></div>
+<img src="chicken.jpg" alt="A cute chicken pecking grass">
 
-      <section id="music-section">
-    <h3>Chicken Radio</h3>
-    <iframe src="https://www.newgrounds.com/audio/listen/embed/1016895" width="100%" height="150" frameborder="0"></iframe>
+<video width="640" height="360" controls>
+  <source src="https://www.pexels.com/download/video/856986/" type="video/mp4">
+</video>
+
+<p>Liked the chickens?</p>
+<p>You want more right? Well then <strong>have</strong> more!</p>
+
+<button onclick='alert("🐓🐓🐓🐓🐓🐓🐓🐓🐓🐓")'>chicken spawner...</button>
+
+<br><br>
+
+<a href="https://en.wikipedia.org/wiki/Chicken">Chicken Wikipedia</a>
+
+<h2>Facts about chickens</h2>
+<p>
+  Did you know chickens were domesticated 8000 years ago?<br>
+  They can lay up to 300 eggs per year — almost one per day!<br>
+  The oldest chicken lived to age 16!
+</p>
+
+<hr>
+
+<section id="music-section">
+  <h3>Chicken Radio</h3>
+  <iframe src="https://www.newgrounds.com/audio/listen/embed/1016895" width="100%" height="150"></iframe>
 </section>
 
-<hr> <section id="generator-section">
-    <h3>Chicken Name Generator</h3>
-    <p id="display-name">Click the button to name your chicken!</p>
-    <button onclick="generateName()">Generate Name</button>
+<hr>
+
+<section id="generator-section">
+  <h3>Chicken Name Generator</h3>
+  <p id="display-name">Click the button to name your chicken!</p>
+  <button onclick="generateName()">Generate Name</button>
 </section>
-    </head>
-  </body>
+
+<script>
+function generateName() {
+  const names = ["Nugget", "Clucky", "Feathers", "Eggbert", "Hen Solo"];
+  const random = names[Math.floor(Math.random() * names.length)];
+  document.getElementById("display-name").innerText = random;
+}
+</script>
+
+</body>
 </html>
