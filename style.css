@@ -110,3 +110,8 @@ button:hover {
   font-size: 1.5rem;
   font-weight: bold;
 }
+
+body.dark {
+  background: #222;
+  color: white;
+}
