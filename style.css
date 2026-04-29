@@ -119,3 +119,18 @@ body.dark {
 img {
   max-width: 100%;
 }
+
+.yard {
+  position: relative;
+  height: 400px;
+  margin: 20px;
+  background: #dff5d8;
+  overflow: hidden;
+}
+
+.chicken {
+  position: absolute;
+  font-size: 40px;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
