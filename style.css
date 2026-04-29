@@ -157,3 +157,34 @@ body.dark button {
 body.dark a {
   color: #ffcc66 !important;
 }
+
+.map {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.region {
+  padding: 30px;
+  text-align: center;
+  background: #f7e7b5;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.region:hover {
+  transform: scale(1.05);
+  background: #ffe08a;
+}
+
+body.dark .region {
+  background: #444;
+}
+
+body.dark .region:hover {
+  background: #666;
+}
