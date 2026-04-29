@@ -1,35 +1,81 @@
-document.addEventListener("DOMContentLoaded", () => {
+let score = 0;
+let time = 30;
+let gameRunning = false;
+let highScore = localStorage.getItem("highScore") || 0;
 
-  const yard = document.getElementById("yard");
-  const spawnBtn = document.getElementById("spawn");
-  const spawn5Btn = document.getElementById("spawn5");
-  const clearBtn = document.getElementById("clear");
+const yard = document.getElementById("yard");
+const scoreEl = document.getElementById("score");
+const timeEl = document.getElementById("time");
+const highEl = document.getElementById("highscore");
 
-  const birds = ["🐔","🐣","🐥","🐓"];
+highEl.textContent = highScore;
 
-  function random(min, max) {
-    return Math.random() * (max - min) + min;
-  }
+const birds = ["🐔","🐣","🐥","🐓"];
 
-  function spawnChicken() {
-    const el = document.createElement("span");
-    el.className = "chicken";
-    el.textContent = birds[Math.floor(Math.random() * birds.length)];
+function random(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
-    el.style.left = random(5, 95) + "%";
-    el.style.top = random(5, 95) + "%";
+function spawnChicken() {
+  if (!gameRunning) return;
 
-    el.onclick = () => el.remove();
+  const el = document.createElement("span");
+  el.className = "chicken";
+  el.textContent = birds[Math.floor(Math.random() * birds.length)];
 
-    yard.appendChild(el);
+  el.style.left = random(5, 95) + "%";
+  el.style.top = random(5, 95) + "%";
 
-    setTimeout(() => el.remove(), 2000);
-  }
-
-  spawnBtn.onclick = spawnChicken;
-  spawn5Btn.onclick = () => {
-    for (let i = 0; i < 5; i++) spawnChicken();
+  // 🐔 click = score
+  el.onclick = () => {
+    score++;
+    scoreEl.textContent = score;
+    el.remove();
   };
-  clearBtn.onclick = () => yard.innerHTML = "";
 
-});
+  yard.appendChild(el);
+
+  // disappears if not clicked
+  setTimeout(() => el.remove(), 1200);
+}
+
+// 🧠 game start
+function startGame() {
+  score = 0;
+  time = 30;
+  gameRunning = true;
+
+  scoreEl.textContent = score;
+  timeEl.textContent = time;
+
+  yard.innerHTML = "";
+
+  // ⏱️ timer
+  const timer = setInterval(() => {
+    time--;
+    timeEl.textContent = time;
+
+    if (time <= 0) {
+      clearInterval(timer);
+      gameRunning = false;
+
+      if (score > highScore) {
+        highScore = score;
+        localStorage.setItem("highScore", highScore);
+      }
+
+      highEl.textContent = highScore;
+
+      alert("Game Over! Score: " + score);
+    }
+  }, 1000);
+
+  // 🐔 spawn loop
+  const spawner = setInterval(() => {
+    if (!gameRunning) {
+      clearInterval(spawner);
+      return;
+    }
+    spawnChicken();
+  }, 500);
+}
