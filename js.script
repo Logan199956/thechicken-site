@@ -74,4 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Spawn one chicken on page load
   spawnChicken();
 
+document.body.classList.toggle("dark");
+
 });
