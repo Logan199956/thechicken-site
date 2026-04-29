@@ -136,24 +136,24 @@ img {
 }
 
 body.dark {
-  background: #1e1e1e;
-  color: #f5f5f5;
+  background: #1e1e1e !important;
+  color: #f5f5f5 !important;
 }
 
 body.dark header {
-  background: #333;
+  background: #333 !important;
 }
 
 body.dark .yard {
-  background: #2a2a2a;
+  background: #2a2a2a !important;
 }
 
 body.dark button {
-  background: #444;
-  color: white;
-  border-color: #777;
+  background: #444 !important;
+  color: white !important;
+  border-color: #777 !important;
 }
 
 body.dark a {
-  color: #ffcc66;
+  color: #ffcc66 !important;
 }
