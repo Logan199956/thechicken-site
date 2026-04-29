@@ -63,6 +63,7 @@ function startGame() {
         highScore = score;
         localStorage.setItem("highScore", highScore);
       }
+     e.preventDefault(); 
 
       highEl.textContent = highScore;
 
@@ -79,3 +80,10 @@ function startGame() {
     spawnChicken();
   }, 500);
 }
+
+document.addEventListener("keydown", (e) => {
+  if (e.code === "Space") {
+    e.preventDefault();
+    spawnChicken();
+  }
+});
