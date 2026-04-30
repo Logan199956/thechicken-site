@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact The Chicken Council</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>📨 Contact The Chicken Council</h1>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="facts.html">Facts</a>
+    <a href="game.html">Game</a>
+    <a href="map.html">Map</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
+</header>
+
+<main>
+
+<section class="contact-box">
+
+  <h2>Send a message to the chickens 🐔</h2>
+
+  <form id="contact-form">
+
+    <input type="text" id="name" placeholder="Your name" required>
+
+    <input type="email" id="email" placeholder="Your email" required>
+
+    <textarea id="message" placeholder="Your message..." required></textarea>
+
+    <button type="submit">Send Message</button>
+
+  </form>
+
+  <p id="status"></p>
+
+</section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
