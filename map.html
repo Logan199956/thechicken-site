@@ -1,46 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Chicken World Map</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<html>
+  <body>
+    <main>
 
-<body>
+<h2>🌍 Chicken World Map</h2>
+<p>Click a region to discover chicken activity 🐔</p>
 
-<header>
-  <h1>🗺️ Chicken World Map</h1>
+<div class="map-container">
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="facts.html">Facts</a>
-    <a href="game.html">Game</a>
-    <a href="about.html">About</a>
-    <a href="map.html">Map</a>
-  </nav>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
+       alt="World Map" class="world-map">
 
-  <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
-</header>
-
-<main>
-
-<h2>Click a region to discover chicken activity 🐔</h2>
-
-<div class="map">
-
-  <div class="region" onclick="showInfo('australia')">🇦🇺 Australia</div>
-  <div class="region" onclick="showInfo('europe')">🇪🇺 Europe</div>
-  <div class="region" onclick="showInfo('asia')">🌏 Asia</div>
-  <div class="region" onclick="showInfo('americas')">🌎 Americas</div>
+  <!-- Clickable regions -->
+  <div class="region australia" onclick="showInfo('australia')"></div>
+  <div class="region europe" onclick="showInfo('europe')"></div>
+  <div class="region asia" onclick="showInfo('asia')"></div>
+  <div class="region americas" onclick="showInfo('americas')"></div>
 
 </div>
 
-<p id="map-info">Click a region to learn more...</p>
+<p id="map-info">Click a region...</p>
 
 </main>
-
-<script src="script.js"></script>
-
-</body>
+  </body>
 </html>
