@@ -188,3 +188,60 @@ body.dark .region {
 body.dark .region:hover {
   background: #666;
 }
+
+.map-container {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+}
+
+.world-map {
+  width: 100%;
+  display: block;
+}
+
+/* Base region style */
+.region {
+  position: absolute;
+  cursor: pointer;
+}
+
+/* Invisible hover highlight */
+.region:hover {
+  background: rgba(255, 200, 0, 0.3);
+  border-radius: 10px;
+}
+
+/* REGION POSITIONS (tweak these if needed) */
+
+/* Australia */
+.australia {
+  bottom: 10%;
+  right: 15%;
+  width: 10%;
+  height: 10%;
+}
+
+/* Europe */
+.europe {
+  top: 25%;
+  left: 45%;
+  width: 10%;
+  height: 10%;
+}
+
+/* Asia */
+.asia {
+  top: 20%;
+  left: 55%;
+  width: 20%;
+  height: 20%;
+}
+
+/* Americas */
+.americas {
+  top: 20%;
+  left: 10%;
+  width: 25%;
+  height: 30%;
+}
